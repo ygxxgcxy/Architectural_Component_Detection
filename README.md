@@ -12,11 +12,11 @@ The detector builds on YOLO11n and combines C3K2-DRG, a Multi-Branch Auxiliary F
 | DySample | `DySample` in `ultralytics/nn/extra_modules/block.py` |
 | LQEHead | `Detect_LQE` and `LQE` in `ultralytics/nn/extra_modules/head.py` |
 
-The complete architecture is defined in `ultralytics/cfg/models/building/building.yaml`. Its first scale is `n`, corresponding to YOLO11n. The configuration retains the original `nc: 80` placeholder; the training dataset configuration supplies the task-specific classes. The model parser in this repository is tailored to the modules retained for `building.yaml`.
+The complete architecture is defined in `ultralytics/cfg/models/building/building.yaml`.
 
 ## Installation
 
-Create a separate Python environment and install a PyTorch build compatible with your GPU and CUDA runtime before installing this repository:
+Set up the Python and PyTorch environment:
 
 ```bash
 python -m venv .venv
@@ -28,8 +28,6 @@ python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 
-Use the bundled `ultralytics` source, because the standard package does not contain these custom modules. Dependencies are listed in `pyproject.toml`.
-
 The experimental environment consisted of Python 3.13.3, PyTorch 2.10.0, CUDA 13.0, and an NVIDIA GeForce RTX 3090 GPU.
 
 ## Dataset
@@ -37,8 +35,6 @@ The experimental environment consisted of Python 3.13.3, PyTorch 2.10.0, CUDA 13
 The original field image data of architectural components are available in `ultralytics/Field_Images/`. Before training the model, please prepare a dataset in YOLO format and a task-specific dataset YAML configuration file. The YAML file should specify the image paths and class names. The order of the class names must be consistent with the class IDs used in the annotations.
 
 ## Training
-
-From the repository root, substitute the path to your dataset YAML:
 
 ```bash
 yolo detect train model=ultralytics/cfg/models/building/building.yaml data=path/to/data.yaml
