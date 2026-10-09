@@ -1,16 +1,16 @@
 # Traditional Chinese architectural component detection
 
 A Detection Method for Ancient Architectural Components Based on an Improved YOLO11 Model:
-The detector builds on YOLO11n and combines C3K2-DRG, a Multi-Branch Auxiliary Feature Pyramid Network (MAFPN), DySample, and a Localization Quality Estimation Head (LQEHead).
+The detector builds on YOLO11n and combines C3K2-DRG, MAFPN, DySample, and LQEHead.
 
 ## Implementation
 
-| Manuscript name | Implementation |
+| Manuscript name | Module description |
 | --- | --- |
-| C3K2-DRG | `C3k2_DRG` in `ultralytics/nn/extra_modules/block.py` |
-| MAFPN | Multibranch feature-fusion connections in `ultralytics/cfg/models/building/building.yaml` |
-| DySample | `DySample` in `ultralytics/nn/extra_modules/block.py` |
-| LQEHead | `Detect_LQE` and `LQE` in `ultralytics/nn/extra_modules/head.py` |
+| C3K2-DRG | C3k2_DRG combines long-range residual learning, channel attention, and dynamic spatial attention to improve fine-grained feature representation.`|
+| MAFPN |  MAFPN fuses low-level spatial details with high-level semantic information through multiple auxiliary branches. |
+| DySample | Adjusts sampling locations using learned input-dependent offsets to improve spatial alignment during multiscale feature fusion. |
+| LQEHead | Estimates localization quality from predicted bounding box distributions and uses these estimates to calibrate classification confidence. |
 
 The complete architecture is defined in `ultralytics/cfg/models/building/building.yaml`.
 
