@@ -46,7 +46,7 @@ Install the remaining dependencies:
 python -m pip install numpy matplotlib opencv-python pillow pyyaml requests scipy tqdm psutil py-cpuinfo pandas seaborn ultralytics-thop
 ```
 
-Please run the code from the repository root to use the local `ultralytics` source containing the custom modules. All of the above installation steps are executed using Python commands.
+Please run the code from the repository root to use the local `ultralytics` source containing the custom modules. The commands above create and activate a virtual environment and install the required dependencies.
 
 The experiments used Python 3.13.3, PyTorch 2.10.0, CUDA 13.0, and an NVIDIA GeForce RTX 3090 GPU.
 
