@@ -16,19 +16,39 @@ The complete architecture is defined in `ultralytics/cfg/models/building/buildin
 
 ## Installation
 
-Set up the Python and PyTorch environment:
+Run the following commands from the repository root to create a virtual environment:
 
 ```bash
 python -m venv .venv
-# Linux/macOS:
-source .venv/bin/activate
-# Windows PowerShell:
-# .venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -e .
 ```
 
-The experimental environment consisted of Python 3.13.3, PyTorch 2.10.0, CUDA 13.0, and an NVIDIA GeForce RTX 3090 GPU.
+Activate the environment on Linux or macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Or activate it in Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Upgrade pip, then install a PyTorch build compatible with your GPU and CUDA environment using the instructions on the [PyTorch installation page](https://pytorch.org/get-started/locally/):
+
+```bash
+python -m pip install --upgrade pip
+```
+
+Install the remaining dependencies:
+
+```bash
+python -m pip install numpy matplotlib opencv-python pillow pyyaml requests scipy tqdm psutil py-cpuinfo pandas seaborn ultralytics-thop
+```
+
+Run the code from the repository root to use the local `ultralytics` source, which contains the custom modules. This installation procedure does not create the `yolo` command; use the Python API for training, validation, and prediction.
+
+The experiments used Python 3.13.3, PyTorch 2.10.0, CUDA 13.0, and an NVIDIA GeForce RTX 3090 GPU.
 
 ## Dataset
 
