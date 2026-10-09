@@ -46,7 +46,7 @@ Install the remaining dependencies:
 python -m pip install numpy matplotlib opencv-python pillow pyyaml requests scipy tqdm psutil py-cpuinfo pandas seaborn ultralytics-thop
 ```
 
-Run the code from the repository root to use the local `ultralytics` source, which contains the custom modules. This installation procedure does not create the `yolo` command; use the Python API for training, validation, and prediction.
+Please run the code from the repository root to use the local `ultralytics` source containing the custom modules. All of the above installation steps are executed using Python commands.
 
 The experiments used Python 3.13.3, PyTorch 2.10.0, CUDA 13.0, and an NVIDIA GeForce RTX 3090 GPU.
 
@@ -66,13 +66,13 @@ python -c "from ultralytics import YOLO; model = YOLO('ultralytics/cfg/models/bu
 
 Replace `path/to/best.pt` with your trained checkpoint and `path/to/data.yaml` with your dataset configuration. Run both commands from the repository root.
 
-Validate the model:
+Validate:
 
 ```bash
 python -c "from ultralytics import YOLO; model = YOLO('path/to/best.pt'); model.val(data='path/to/data.yaml')"
 ```
 
-Predict on the example images and save the results:
+Predict:
 
 ```bash
 python -c "from ultralytics import YOLO; model = YOLO('path/to/best.pt'); model.predict(source='ultralytics/Field_Images', save=True)"
