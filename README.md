@@ -56,15 +56,26 @@ The original field image data of architectural components are available in `ultr
 
 ## Training
 
+Run from the repository root and replace `path/to/data.yaml` with your dataset configuration:
+
 ```bash
-yolo detect train model=ultralytics/cfg/models/building/building.yaml data=path/to/data.yaml
+python -c "from ultralytics import YOLO; model = YOLO('ultralytics/cfg/models/building/building.yaml'); model.train(data='path/to/data.yaml')"
 ```
 
 ## Validation and prediction
 
+Replace `path/to/best.pt` with your trained checkpoint and `path/to/data.yaml` with your dataset configuration. Run both commands from the repository root.
+
+Validate the model:
+
 ```bash
-yolo detect val model=path/to/best.pt data=path/to/data.yaml
-yolo detect predict model=path/to/best.pt source=ultralytics/Field_Images
+python -c "from ultralytics import YOLO; model = YOLO('path/to/best.pt'); model.val(data='path/to/data.yaml')"
+```
+
+Predict on the example images and save the results:
+
+```bash
+python -c "from ultralytics import YOLO; model = YOLO('path/to/best.pt'); model.predict(source='ultralytics/Field_Images', save=True)"
 ```
 
 ## License
